@@ -218,7 +218,7 @@ const handleQuantityFilter=(value)=>{
 
       </div>
       
-      <div className="row signupForm">
+      <div className="row signupForm mb-5">
         {/* {console.log(products)} */}
         { search.trim()==="" && !priceFilter && !quantityFilter ?  products && products.length>0 ?
           products.map((item, index) => (
@@ -242,9 +242,9 @@ const handleQuantityFilter=(value)=>{
                 alt="pic"
                 width="150px"
               />
-               {edit === index && <input
+               {edit === index && <div className="text-center"> <input
                 // style={{margin:"auto"}}
-                // className="custom-file-input mt-2"
+                // className="text-center"
                 // required={true}
                 type="file"
                 accept="image/*"
@@ -252,7 +252,7 @@ const handleQuantityFilter=(value)=>{
                   e.target.value = "";
                 }}
                 onChange={(e) => handleImage(e.target.files[0])}
-              />}
+              /> </div>}
               <hr></hr>
               <div className="text-left ">
                 {edit !== index ? (
