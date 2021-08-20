@@ -1,0 +1,32 @@
+.card {
+    box-shadow: 2px 4px 8px 2px rgba(89, 136, 97, 0.473);
+    transition: 0.1s;
+    margin-top: 30px;
+    width: 100%;
+    border-top: 10px solid rgba(89, 136, 97, 0.815);
+    border-radius: 30px;
+  }
+  
+  .card:hover {
+    box-shadow: 4px 8px 16px 4px rgba(89, 136, 97, 0.815);
+  }
+
+  .signupForm{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .searchkaro{
+    width: 60%;
+    height: 37px;
+    border:2px solid rgb(255 255 255);
+    border-radius: 40px;
+    text-align: center;
+    font-size: 1.2vw;
+    background-color: #e6e6e6;
+  }
+  .searchkaro:focus{
+  
+    outline:none;
+    
+  }
+  
