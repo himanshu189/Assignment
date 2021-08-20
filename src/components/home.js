@@ -45,6 +45,14 @@ const handleEdit=(item,index)=>{
 const handleSave=(index)=>{
   setEdit('')
 
+  console.log(name,quantity,price,name && quantity && price)
+if(!(name && quantity && price))
+{
+
+  toast.error("Name/Quantity/Price is empty ")
+  return
+}
+
   let payload={
     name:name,
     photoPreview:photoPreview,
@@ -89,6 +97,7 @@ return payload
   // setProducts([...products,products[index]=payload])
   
   dispatch({type:"EDITPRODUCT",payload:res})
+  toast.success("Product Updated successfully")
 
 }
 const handleImage = (file) => {
@@ -299,7 +308,7 @@ const handleQuantityFilter=(value)=>{
                         class="form-control"
                         value={price}
                         onChange={(e) => {
-                          setPrice( e.target.value);
+                          setPrice(  e.target.value.replace(/[^0-9|^.]/g, ""));
                         }}
                         // onFocus={(e) => setError({ ...error, name: "" })}
                         // onBlur={(e) => handleValidation("name")}
@@ -325,7 +334,7 @@ const handleQuantityFilter=(value)=>{
                         class="form-control"
                         value={quantity}
                         onChange={(e) => {
-                          setQuantity( e.target.value);
+                          setQuantity(  e.target.value.replace(/[^0-9|^]/g, ""));
                         }}
                         // onFocus={(e) => setError({ ...error, name: "" })}
                         // onBlur={(e) => handleValidation("name")}
@@ -334,7 +343,7 @@ const handleQuantityFilter=(value)=>{
                   </div>
                 )}
                {edit !== index ? (  <p>
-                  <b>Description -</b> {item.description}
+                  <b>Description -</b> {item?.description ? item.description:"N/A"}
                 </p>)
                 : (
                   <div className="row">
@@ -461,7 +470,7 @@ const handleQuantityFilter=(value)=>{
                         class="form-control"
                         value={price}
                         onChange={(e) => {
-                          setPrice( e.target.value);
+                          setPrice( e.target.value.replace(/[^0-9|^.]/g, ""));
                         }}
                         // onFocus={(e) => setError({ ...error, name: "" })}
                         // onBlur={(e) => handleValidation("name")}
@@ -487,7 +496,7 @@ const handleQuantityFilter=(value)=>{
                         class="form-control"
                         value={quantity}
                         onChange={(e) => {
-                          setQuantity( e.target.value);
+                          setQuantity(e.target.value.replace(/[^0-9|^]/g, ""));
                         }}
                         // onFocus={(e) => setError({ ...error, name: "" })}
                         // onBlur={(e) => handleValidation("name")}
@@ -496,7 +505,7 @@ const handleQuantityFilter=(value)=>{
                   </div>
                 )}
                {edit !== index ? (  <p>
-                  <b>Description -</b> {item.description}
+                  <b>Description -</b> {item?.description ? item.description:"N/A"}
                 </p>)
                 : (
                   <div className="row">
